@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="launch_control_trajectory_all" default="true"/>
+  <!-- Load the URDF Model -->
+  <include file="$(find pepper_description)/launch/pepper_upload.launch" />  
 
   <!-- Call Pepper Robot Trajectory Controller -->
   <include file="$(find pepper_control)/launch/pepper_control_trajectory.launch" unless="$(arg launch_control_trajectory_all)"/>
