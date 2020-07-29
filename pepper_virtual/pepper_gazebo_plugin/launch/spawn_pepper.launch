@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <launch>
+
+  <arg name="use_rviz" default="false"/>
+
   <arg name="launch_control_trajectory_all" default="true"/>
   <!-- Load the URDF Model -->
   <include file="$(find pepper_description)/launch/pepper_upload.launch" />  
@@ -12,4 +15,8 @@
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
     args="-param robot_description -urdf -x -0.0 -y 0.0 -z 0.88 -model pepper_MP" />
 
+
+  <include file="$(find pepper_moveit_config)/launch/moveit_planner.launch">
+      <arg name="use_rviz" value="false"/>
+  </include>
 </launch>
